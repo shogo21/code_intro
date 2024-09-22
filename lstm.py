@@ -114,7 +114,7 @@ dropout_lstm_inception = Dropout(0.5, name='dropout')(lstm_output)
 dense_lstm = Dense(1, activation='sigmoid', name='dense')(dropout_lstm_inception)
 
 final_model = Model(inputs=cnn_input, outputs=dense_lstm)
-
+#結果を出力
 final_model.summary()
 
 epochs = 200
