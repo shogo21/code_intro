@@ -14,6 +14,7 @@ def videotopath(videos):
     x_paths = []
     x_labels = []
     for file in videos:
+        #4指のデータ
         hands = sorted(glob.glob(file+"/*"))
         for finger in ['index', 'middle', 'ring', 'little']:
             x_path = list(hand for hand in hands if finger in hand)
@@ -61,27 +62,8 @@ def changebright(ch_lists):
     for ch_list in ch_lists:
         #bright = random.randrange(3, 20, 1) / 10
         change_input1 = cv2.convertScaleAbs(ch_list*255, alpha=0.5, beta=0)
-        #change_input2 = cv2.convertScaleAbs(ch_list*255, alpha=1.5, beta=0)
-        """change_input3 = cv2.convertScaleAbs(ch_list*255, alpha=0.3, beta=0)
-        change_input4 = cv2.convertScaleAbs(ch_list*255, alpha=2.0, beta=0)
-        change_input5 = cv2.convertScaleAbs(ch_list*255, alpha=0.8, beta=0)
-        change_input6 = cv2.convertScaleAbs(ch_list*255, alpha=1.2, beta=0)"""
         change_input1 = np.asarray(change_input1).astype('float32') / 255
-        #change_input2 = np.asarray(change_input2).astype('float32') / 255
-        """change_input3 = np.asarray(change_input3).astype('float32') / 255
-        change_input4 = np.asarray(change_input4).astype('float32') / 255
-        change_input5 = np.asarray(change_input5).astype('float32') / 255
-        change_input6 = np.asarray(change_input6).astype('float32') / 255"""
         change_inputs.append(change_input1)
-        #change_inputs.append(change_input2)
-        """change_inputs.append(change_input3)
-        change_inputs.append(change_input4)
-        change_inputs.append(change_input5)
-        change_inputs.append(change_input6)"""
-        #print(bright)
-        """change_input = cv2.convertScaleAbs(ch_list*255, alpha=bright, beta=0)
-        change_input = np.asarray(change_input).astype('float32') / 255
-        change_inputs.append(change_input)"""
 
     return change_inputs
 
@@ -113,8 +95,6 @@ def addcorrectlabel(colabels):
     for label in colabels:
         add_y = np.array(label)
         add_y = add_y.reshape(-1, 1)
-        """for j in range(1):
-            add_Y.append(add_y)"""
 
     return add_Y
 
