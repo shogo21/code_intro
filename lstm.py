@@ -35,41 +35,7 @@ for i in index:
     del videos[i]
 
 inputs_train_path, labels_train_path = prepare_data.videotopath(videos)
-
-"""inputs_train = prepare_data.imageread2(inputs_train_path)
-change_inputs_train = prepare_data.changebright(inputs_train)
-inputs_train = inputs_train+change_inputs_train
-#inputs_train = change_inputs_train
-print(len(inputs_train))
-
-sequence_X_train = prepare_data.padhing(inputs_train)
-
-Y_train = prepare_data.correctlabel(labels_train_path)
-change_Y_train = prepare_data.addcorrectlabel(labels_train_path)
-Y_train = Y_train+change_Y_train
-#Y_train = change_Y_train
-print(len(Y_train))
-
-sequence_Y_train = prepare_data.padhing(Y_train)"""
-
-
 inputs_val_path, labels_val_path = prepare_data.videotopath(videos_val)
-
-"""inputs_val = prepare_data.imageread2(inputs_val_path)
-change_inputs_val = prepare_data.changebright(inputs_val)
-inputs_val = inputs_val+change_inputs_val
-inputs_val = change_inputs_val
-print(len(inputs_val))
-
-sequence_X_val = prepare_data.padhing(inputs_val)
-
-Y_val = prepare_data.correctlabel(labels_val_path)
-change_Y_val = prepare_data.addcorrectlabel(labels_val_path)
-Y_val = Y_val+change_Y_val
-Y_val = change_Y_val
-print(len(Y_val))
-
-sequence_Y_val = prepare_data.padhing(Y_val)"""
 
 datagen = ImageDataGenerator(rescale=1./255)
 batch_size = 4
