@@ -107,6 +107,7 @@ def inception_encoder(image_size):
 cnn_input = Input(shape=(None, 50, 50, 3), name='cnn_input')
 cnn_model = inception_encoder(50)
 
+#TimeDistributedは時系列データに対応したもの
 cnn_output = TimeDistributed(cnn_model, name='time_distributed')(cnn_input)
 lstm_output = LSTM(512, stateful=False, return_sequences=True, name='lstm')(cnn_output)
 dropout_lstm_inception = Dropout(0.5, name='dropout')(lstm_output)
