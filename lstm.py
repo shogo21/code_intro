@@ -15,9 +15,9 @@ import random
 import glob
 import time
 
+#imagefile/人ごと/系列ごと
 DATA_DIR = './imagefile'
 videos = sorted(glob.glob(DATA_DIR+'/*/*'))
-
 
 videos_test = []
 for video in videos:
@@ -155,7 +155,7 @@ epochs = 200
 reduce_lr = ReduceLROnPlateau(monitor='val_accuracy', factor=0.5, patience=10, verbose=1, mode='max', min_lr=0.0001)
 
 checkpoint = ModelCheckpoint(filepath='./lstm_num14_nochange/my_lstmmodel_num14_epo{epoch:03d}_nochange', save_weights_only=False, save_best_only=True, monitor='val_loss', verbose=1)
-early = EarlyStopping(monitor='val_loss', patience=20, verbose=1, mode='auto', restore_best_weights=True)
+#early = EarlyStopping(monitor='val_loss', patience=20, verbose=1, mode='auto', restore_best_weights=True)
 tensorboard = TensorBoard(log_dir='./lstm_num14_nochange/my_lstmmodel_num14_epo_nochange_logs', histogram_freq=1)
 callbacks_list=[reduce_lr, checkpoint, tensorboard]
 #callbacks_list=[early, checkpoint, tensorboard]
